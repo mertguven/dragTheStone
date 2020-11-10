@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
                     elevation: 10,
                     color: Color(0xFF062161),
                     child: Text(
-                      "Start",
+                      "Başlat",
                       style: TextStyle(color: Colors.white, fontSize: 30),
                     ),
                   ),
