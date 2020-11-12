@@ -1,3 +1,7 @@
+import 'package:dragTheStone/screens/aboutPage.dart';
+import 'package:dragTheStone/screens/gameSettingsPage.dart';
+import 'package:dragTheStone/screens/howToPlayPage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -25,7 +29,10 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   RaisedButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => GameSettingsPage())),
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
@@ -33,12 +40,15 @@ class _HomePageState extends State<HomePage> {
                     elevation: 10,
                     color: Color(0xFF062161),
                     child: Text(
-                      "Başlat",
+                      "Start",
                       style: TextStyle(color: Colors.white, fontSize: 30),
                     ),
                   ),
                   RaisedButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => HowToPlayPage())),
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
@@ -51,7 +61,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   RaisedButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.push(context,
+                        CupertinoPageRoute(builder: (context) => AboutPage())),
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
@@ -59,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                     elevation: 10,
                     color: Color(0xFF062161),
                     child: Text(
-                      "About",
+                      "About Us",
                       style: TextStyle(color: Colors.white, fontSize: 30),
                     ),
                   ),

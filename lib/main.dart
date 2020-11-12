@@ -1,4 +1,4 @@
-import 'package:dragTheStone/Home_Page.dart';
+import 'package:dragTheStone/screens/home_Page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
