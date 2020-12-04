@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'package:dragTheStone/screens/gamePage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -7,84 +10,96 @@ class GameSettingsPage extends StatefulWidget {
 }
 
 class _GameSettingsPageState extends State<GameSettingsPage> {
-  Icon _icon;
+  var player;
+  var mainStone;
+  var wall1;
+  var wall2;
+  var wall3;
+  var wallIndex = 0;
+  var playerIndex = 0;
+  var counter = 0;
+  int homeIconCounter = 1;
+  int playerIconCounter = 1;
+  int wallIconCounter = 3;
+  bool isItClicked = false;
+  Timer timer;
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  List<Icon> icon = List(81);
+  static int numberInRow = 9;
+  int numberOfSquares = numberInRow * 9;
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Lottie.asset("assets/home_page_background_animation.json",
+                width: double.infinity),
+            Container(
+              height: MediaQuery.of(context).size.height / 2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 20),
-                    color: Colors.red,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Score: 0"),
-                      ],
+                  RaisedButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => GamePage(
+                                  sizeOfField: 7,
+                                ))),
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    elevation: 10,
+                    color: Color(0xFF062161),
+                    child: Text(
+                      "7 X 7",
+                      style: TextStyle(color: Colors.white, fontSize: 30),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, top: 20),
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      itemCount: 5 * 5,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 5,
-                          mainAxisSpacing: 6,
-                          crossAxisSpacing: 6),
-                      itemBuilder: (BuildContext context, int index) {
-                        print(_icon == null ? "boş len mq" : "");
-                        return DragTarget<Icon>(
-                          builder: (BuildContext context,
-                              List<Object> candidateData,
-                              List<dynamic> rejectedData) {
-                            return Container(
-                              color: _icon == null ? Colors.blue : Colors.red,
-                            );
-                          },
-                          onLeave: (data) {},
-                          onAccept: (data) {
-                            print(data.color);
-                            setState(() {
-                              _icon = data;
-                            });
-                          },
-                          onWillAccept: (data) => data == Icon(Icons.home),
-                        );
-                      },
+                  RaisedButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => GamePage(
+                                  sizeOfField: 8,
+                                ))),
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    elevation: 10,
+                    color: Color(0xFF062161),
+                    child: Text(
+                      "8 X 8",
+                      style: TextStyle(color: Colors.white, fontSize: 30),
+                    ),
+                  ),
+                  RaisedButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => GamePage(
+                                  sizeOfField: 9,
+                                ))),
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    elevation: 10,
+                    color: Color(0xFF062161),
+                    child: Text(
+                      "9 X 9",
+                      style: TextStyle(color: Colors.white, fontSize: 30),
                     ),
                   ),
                 ],
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 20),
-                color: Colors.red,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Draggable<Icon>(
-                      feedback: Icon(Icons.home),
-                      child: Icon(Icons.home),
-                      data: Icon(Icons.home),
-                      childWhenDragging: Container(),
-                    ),
-                    Draggable<Icon>(
-                      feedback: Icon(Icons.circle),
-                      child: Icon(Icons.circle),
-                      data: Icon(Icons.circle),
-                      childWhenDragging: Container(),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -11,8 +11,7 @@ class HowToPlayPage extends StatelessWidget {
           children: [
             Lottie.asset(
               "assets/home_page_background_animation.json",
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
+              width: double.infinity,
             ),
             Container(
               padding: EdgeInsets.symmetric(vertical: 30, horizontal: 15),
@@ -29,10 +28,10 @@ class HowToPlayPage extends StatelessWidget {
                     ),
                   ]),
               child: Text(
-                "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.",
+                "The house icon and the human icon are placed in the field and if desired, the flame icon is placed in the field and the start button is clicked. If we want to pause, click the pause button, if we want to continue, click the continue button.",
                 style: TextStyle(
                   color: Color(0xFF062161),
-                  fontSize: 16,
+                  fontSize: 22,
                 ),
               ),
             ),

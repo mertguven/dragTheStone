@@ -18,11 +18,8 @@ class _HomePageState extends State<HomePage> {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Lottie.asset(
-              "assets/home_page_background_animation.json",
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-            ),
+            Lottie.asset("assets/home_page_background_animation.json",
+                width: double.infinity),
             Container(
               height: MediaQuery.of(context).size.height / 2,
               child: Column(

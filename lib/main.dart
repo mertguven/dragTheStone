@@ -1,4 +1,4 @@
-import 'package:dragTheStone/screens/home_Page.dart';
+import 'package:dragTheStone/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,10 +11,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Drag The Stone',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: HomePage(),
     );
   }

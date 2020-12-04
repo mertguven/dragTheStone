@@ -12,8 +12,7 @@ class AboutPage extends StatelessWidget {
           children: [
             Lottie.asset(
               "assets/home_page_background_animation.json",
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
+              width: double.infinity,
             ),
             Container(
               margin: EdgeInsets.only(top: 200, left: 30, right: 30),
@@ -54,7 +53,7 @@ class AboutPage extends StatelessWidget {
                     onTap: () => _launchMail("draggablestone@gmail.com"),
                   ),
                   ListTile(
-                    title: Text("Mert Güven Linkedin"),
+                    title: Text("Mert Güven LinkedIn"),
                     trailing: FaIcon(
                       FontAwesomeIcons.linkedinIn,
                       color: Color(0xFF062161),
@@ -63,7 +62,7 @@ class AboutPage extends StatelessWidget {
                         "https://www.linkedin.com/in/mert-güven-8a0006177/"),
                   ),
                   ListTile(
-                    title: Text("Doğukan Yolcuoğlu Likedin"),
+                    title: Text("Doğukan Yolcuoğlu LikedIn"),
                     trailing: FaIcon(
                       FontAwesomeIcons.linkedinIn,
                       color: Color(0xFF062161),
